@@ -25,6 +25,8 @@ namespace AzureSearch
                     {
                         options.SearchServiceName = context.Configuration["SearchServiceName"];
                         options.AdminApiKey = context.Configuration["AdminApiKey"];
+                        options.IndexName = context.Configuration.GetValue("IndexName", "hotels");
+                        options.HotelFileName = context.Configuration.GetValue("HotelFileName", "HotelData.txt");
                     });
 
                     services.AddHostedService<MyService>();
